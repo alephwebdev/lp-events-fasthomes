@@ -33,6 +33,21 @@
         <link rel="icon" href="src/assets/logo-da-fasthomes.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="src/assets/logo-da-fasthomes.svg">
         <meta name="theme-color" content="#ffffff">
+        <!-- script sets theme-color meta from CSS variables so it follows runtime theming -->
+        <script>
+            (function(){
+                try{
+                    function updateThemeColor(){
+                        var root = getComputedStyle(document.documentElement);
+                        var color = root.getPropertyValue('--color-white') || '#ffffff';
+                        var meta = document.querySelector('meta[name="theme-color"]');
+                        if(meta) meta.setAttribute('content', color.trim());
+                    }
+                    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', updateThemeColor);
+                    else updateThemeColor();
+                }catch(e){/* silent */}
+            })();
+        </script>
 
         <!-- Styles: reset first, then global -->
         <link rel="stylesheet" href="src/styles/reset.css">

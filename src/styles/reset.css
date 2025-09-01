@@ -22,7 +22,7 @@ body {
     /* forçar scrollbar no IE */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Urbanist', sans-serif;
+    font-family: var(--font-family);
 }
 
 /* Tipografia base: não forçar fonte — o projeto deve controlar a família/tamanho */
@@ -207,8 +207,21 @@ button,
 
 /* Accessibility: ensure focus outlines remain visible for keyboard users; projects can override with more tasteful styles */
 :root {
-    --focus-color: #2563eb;
-    /* azul acessível por padrão, pode ser sobrescrito */
+    /* Tipografia e cores padrão do projeto — extraídas para variáveis para tornar dinâmicas */
+    --font-family: 'Urbanist', sans-serif;
+
+    /* cores principais */
+    --color-black: #1d1d1b;
+    --color-white: #181414;
+    --color-offwhite: #fbfbfb;
+    --color-offwhite-40: #fbfbfb40;
+    --color-gray: #cecece;
+    --color-darktext: #333333;
+    --color-green: #0F9D58;
+    --color-red: #d93025;
+    --color-button: #4D5615;
+    --color-link: #063db6;
+    --focus-color: #2563eb; /* azul acessível por padrão, pode ser sobrescrito */
 }
 
 :focus-visible {

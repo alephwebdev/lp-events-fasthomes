@@ -10,7 +10,7 @@
     position: relative;
     flex-direction: column;
     gap: 20px;
-    background: #1d1d1b;
+    background: var(--color-black);
 
     @media (max-width: 768px){
         justify-content: flex-start;
@@ -49,7 +49,7 @@
             width: 100%;
             height: 350px;
             border-radius: 0 0 20px 20px;
-            border: 3px solid #fbfbfb40;
+            border: 3px solid var(--color-offwhite-40);
             border-top: none;
         }
     }
@@ -64,9 +64,9 @@
         width: 90%;
         max-width: 500px;
         border-radius: 14px;
-        background-color: #fbfbfb;
-        border: 3px solid #cecece;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    background-color: var(--color-offwhite);
+    border: 3px solid var(--color-gray);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
         position: relative;
         z-index: 2;
 
@@ -93,7 +93,7 @@
             font-size: 38px;
             line-height: 1;
             font-weight: 400;
-            color: #1d1d1b;
+            color: var(--color-black);
 
             @media (max-width: 768px){
                 font-size: 24px;
@@ -119,11 +119,11 @@
             }
 
             .form-message.success {
-                color: #0F9D58;
+                color: var(--color-green);
             }
 
             .form-message.error {
-                color: #d93025;
+                color: var(--color-red);
             }
 
             .form-message a {
@@ -199,13 +199,13 @@
 
             .form-popup .popup-content {
                 position: relative;
-                background: #fff;
+                background: var(--color-white);
                 width: 400px;
                 top: 50%;
                 left: 50%;
                 transform: translateX(-50%) translateY(-50%);
                 border-radius: 8px;
-                border: 1px solid #1d1d1b;
+                border: 1px solid var(--color-black);
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -233,7 +233,7 @@
             }
 
             .popup-body {
-                color: #333;
+                color: var(--color-darktext);
             }
 
             .popup-illustration {
@@ -249,8 +249,8 @@
             }
 
             .popup-link {
-                background: #0F9D58;
-                color: #fff;
+                background: var(--color-green);
+                color: var(--color-white);
                 padding: 10px 14px;
                 border-radius: 8px;
                 text-decoration: none;
@@ -325,13 +325,13 @@
                 height: 54px;
                 border-radius: 50%;
                 border: 4px solid rgba(255, 255, 255, .4);
-                border-top-color: #fff;
+                border-top-color: var(--color-white);
                 animation: spin .8s linear infinite;
             }
 
             /* Button success state */
             .btn-success {
-                background-color: #0F9D58 !important;
+                background-color: var(--color-green) !important;
                 transition: background-color .25s ease, color .25s ease;
             }
 
@@ -339,7 +339,7 @@
             gap: 15px;
 
             & label {
-                border: 1px solid #1d1d1b;
+                border: 1px solid var(--color-black);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -354,7 +354,7 @@
                     padding: 0 5px;
                     font-size: 14px;
                     font-weight: 400;
-                    background-color: #fbfbfb;
+                    background-color: var(--color-offwhite);
                 }
 
                 & input {
@@ -396,8 +396,8 @@
                 justify-content: center;
                 gap: 10px;
                 padding: 14px;
-                background-color: #4D5615;
-                color: #fbfbfb;
+                background-color: var(--color-button);
+                color: var(--color-offwhite);
                 font-weight: 500;
                 font-size: 18px;
                 border-radius: 5px;
@@ -409,25 +409,25 @@
 
                 & svg {
                     width: 20px;
-                    fill: #fbfbfb;
+                    fill: var(--color-offwhite);
                 }
             }
         }
 
-        & p {
+            & p {
             margin-top: -15px;
             line-height: 1.2;
             width: 100%;
             font-size: 16px;
             font-weight: 500;
-            color: #1d1d1b;
+            color: var(--color-black);
 
             @media (max-width: 768px){
                 font-size: 14px;
             }
 
             & a {
-                color: #063db6;
+                color: var(--color-link);
                 text-decoration: underline;
             }
         }
