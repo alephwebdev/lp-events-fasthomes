@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
+.autor {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%);
+    gap: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+
+    & img {
+        width: 22px;
+        filter: invert(500%) brightness(200%);
+    }
+}
+
 .form-section {
     width: 100%;
     height: auto;
