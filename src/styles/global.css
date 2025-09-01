@@ -144,7 +144,7 @@
             .form-popup {
                 position: fixed;
                 top: 50%;
-                width: 90%;
+                width: 100%;
                 left: auto;
                 inset: 0;
                 z-index: 1000;
@@ -174,6 +174,10 @@
                 box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
                 padding: 20px 20px 16px;
                 animation: popIn .2s ease;
+
+                @media (max-width: 768px){
+                    width: 80%;
+                }
 
                 & img {
                     width: 50px;
