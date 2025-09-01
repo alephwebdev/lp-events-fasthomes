@@ -65,7 +65,7 @@
         max-width: 500px;
         border-radius: 14px;
         background-color: #fbfbfb;
-        border: 3px solid #d6d6d6;
+        border: 3px solid #cecece;
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
         position: relative;
         z-index: 2;
@@ -74,7 +74,7 @@
             padding: 20px;
             top: -80px;
             position: relative;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
         }
 
         & img {
