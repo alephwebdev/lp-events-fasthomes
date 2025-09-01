@@ -1,0 +1,384 @@
+@import url('/src/styles/reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+.form-section {
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    & .bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        background-image: url('https://imagedelivery.net/1n9Gwvykoj9c9m8C_4GsGA/51404013-36af-483f-d5cd-482d36fa5c00/public');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    & .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 14px;
+        background-color: #fbfbfb;
+        border: 4px solid #e9e9e9;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+
+        & img {
+            width: 60px;
+            height: auto;
+            object-fit: contain;
+            object-position: center;
+
+            @media (max-width: 768px){
+                width: 50px;
+            }
+        }
+
+        & h1 {
+            font-size: 38px;
+            line-height: 1;
+            font-weight: 400;
+            color: #1d1d1b;
+
+            @media (max-width: 768px){
+                font-size: 24px;
+            }
+        }
+
+        & form {
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            /* Added: form message and button state styles */
+            .form-message {
+                height: 100%;
+                font-size: 0.95rem;
+                line-height: 1.2;
+                opacity: 0;
+                transform: translateY(-4px);
+                animation: slideFadeIn .35s ease forwards;
+                border: 1px solid red;
+            }
+
+            .form-message.success {
+                color: #0F9D58;
+            }
+
+            .form-message.error {
+                color: #d93025;
+            }
+
+            .form-message a {
+                color: inherit;
+                text-decoration: underline;
+                font-weight: 600;
+            }
+
+            @keyframes slideFadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-4px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            button[disabled],
+            button[aria-disabled="true"] {
+                opacity: .7;
+                cursor: not-allowed;
+            }
+
+            .is-loading {
+                position: relative;
+            }
+
+            .is-loading .btn-text {
+                opacity: .7;
+            }
+
+            .is-loading::after {
+                content: '';
+                position: absolute;
+                right: 12px;
+                top: 50%;
+                width: 16px;
+                height: 16px;
+                margin-top: -8px;
+                border: 2px solid rgba(255, 255, 255, .6);
+                border-top-color: rgba(255, 255, 255, 1);
+                border-radius: 50%;
+                animation: spin .6s linear infinite;
+            }
+
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* Popup styles */
+            .form-popup[hidden] {
+                display: none;
+            }
+
+            .form-popup {
+                position: fixed;
+                top: 50%;
+                left: auto;
+                inset: 0;
+                z-index: 1000;
+            }
+
+            .form-popup .popup-backdrop {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, .6);
+                animation: fadeIn .2s ease;
+            }
+
+            .form-popup .popup-content {
+                position: relative;
+                background: #fff;
+                width: 400px;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                border-radius: 8px;
+                border: 1px solid #1d1d1b;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+                padding: 20px 20px 16px;
+                animation: popIn .2s ease;
+
+                & img {
+                    width: 50px;
+                    margin-bottom: -10px;
+                }
+            }
+
+            .popup-title {
+                font-size: 28px;
+                font-weight: 500;
+            }
+
+            .popup-body {
+                color: #333;
+            }
+
+            .popup-illustration {
+                width: 64px;
+                height: auto;
+                margin: 8px 0 -6px;
+            }
+
+            .popup-actions {
+                display: flex;
+                gap: 8px;
+                justify-content: flex-end;
+            }
+
+            .popup-link {
+                background: #0F9D58;
+                color: #fff;
+                padding: 10px 14px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+            .popup-link:hover {
+                filter: brightness(0.95);
+            }
+
+            .popup-close {
+                position: absolute;
+                top: 8px;
+                right: 10px;
+                border: 0;
+                background: transparent;
+                font-size: 22px;
+                line-height: 1;
+                cursor: pointer;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            @keyframes popIn {
+                from {
+                    transform: translateY(-6px);
+                    opacity: 0
+                }
+
+                to {
+                    transform: translateY(0);
+                    opacity: 1
+                }
+            }
+
+            /* Loading overlay full screen */
+            .loading-overlay[hidden] {
+                display: none;
+            }
+
+            .loading-overlay {
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                /* ensure on top of any content */
+            }
+
+            .loading-overlay .loading-backdrop {
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, .45);
+                animation: fadeIn .2s ease;
+            }
+
+            .loading-overlay .loading-center {
+                position: absolute;
+                inset: 0;
+                display: grid;
+                place-items: center;
+            }
+
+            .loading-spinner {
+                width: 54px;
+                height: 54px;
+                border-radius: 50%;
+                border: 4px solid rgba(255, 255, 255, .4);
+                border-top-color: #fff;
+                animation: spin .8s linear infinite;
+            }
+
+            /* Button success state */
+            .btn-success {
+                background-color: #0F9D58 !important;
+                transition: background-color .25s ease, color .25s ease;
+            }
+
+            justify-content: center;
+            gap: 15px;
+
+            & label {
+                border: 1px solid #1d1d1b;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                position: relative;
+                border-radius: 5px;
+
+                & span {
+                    position: absolute;
+                    top: -10px;
+                    left: 10px;
+                    padding: 0 5px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    background-color: #fbfbfb;
+                }
+
+                & input {
+                    width: 100%;
+                    position: relative;
+                    display: flex;
+                    height: auto;
+                    padding: 14px 12px;
+                    background: transparent;
+                    border: none;
+
+                    @media (max-width: 768px){
+                        padding: 10px 12px;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                & svg {
+                    position: absolute;
+                    top: 50%;
+                    right: 12px;
+                    transform: translateY(-50%);
+                    width: 20px;
+                    opacity: 0.6;
+
+                    @media (max-width: 768px){
+                        width: 18px;
+                    }
+                }
+            }
+
+            & button {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                padding: 14px;
+                background-color: #1d1d1b;
+                color: #fbfbfb;
+                font-weight: 500;
+                font-size: 18px;
+                border-radius: 5px;
+
+                & svg {
+                    width: 20px;
+                    fill: #fbfbfb;
+                }
+            }
+        }
+
+        & p {
+            margin-top: -15px;
+            line-height: 1.2;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1d1d1b;
+
+            @media (max-width: 768px){
+                font-size: 14px;
+            }
+
+            & a {
+                color: #063db6;
+                text-decoration: underline;
+            }
+        }
+    }
+}
