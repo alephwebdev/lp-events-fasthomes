@@ -12,7 +12,7 @@
             var current = slides.findIndex(function (s) { return s.classList.contains('active'); });
             if (current < 0) current = 0;
 
-            var interval = 3000; // ms between slides
+            var interval = 2000; // ms between slides
             var timer = null;
 
             function show(index) {
