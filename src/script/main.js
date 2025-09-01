@@ -1,5 +1,57 @@
 // Main JS for phone mask, validation, webhook submission, and success UI
 (function () {
+    // --- Background carousel: automatic slides with minimal footprint ---
+    (function setupBackgroundCarousel() {
+        try {
+            var carouselRoot = document.querySelector('.form-section .bg');
+            if (!carouselRoot) return;
+
+            var slides = Array.from(carouselRoot.querySelectorAll('.bg-slide'));
+            if (!slides.length) return;
+
+            var current = slides.findIndex(function (s) { return s.classList.contains('active'); });
+            if (current < 0) current = 0;
+
+            var interval = 3000; // ms between slides
+            var timer = null;
+
+            function show(index) {
+                slides.forEach(function (s, i) {
+                    s.classList.toggle('active', i === index);
+                });
+                current = index;
+            }
+
+            function next() {
+                var nextIndex = (current + 1) % slides.length;
+                show(nextIndex);
+            }
+
+            function start() {
+                stop();
+                timer = setInterval(next, interval);
+            }
+
+            function stop() {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+            }
+
+            // Pause on hover / focus for accessibility
+            carouselRoot.addEventListener('mouseenter', stop);
+            carouselRoot.addEventListener('mouseleave', start);
+            carouselRoot.addEventListener('touchstart', stop, { passive: true });
+            carouselRoot.addEventListener('touchend', start, { passive: true });
+
+            // kick off
+            show(current);
+            start();
+        } catch (e) {
+            console.error('Carousel init error', e);
+        }
+    })();
     const form = document.getElementById('whatsapp-form');
     const phoneInput = document.getElementById('phone');
     const submitBtn = document.getElementById('submit-btn');
