@@ -49,6 +49,7 @@
             height: 350px;
             border-radius: 0 0 20px 20px;
             border: 2px solid #fbfbfb;
+            border-top: none;
         }
     }
 
