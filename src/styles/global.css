@@ -33,6 +33,9 @@
 
     @media (max-width: 768px){
         justify-content: flex-start;
+        background-image: url('../assets/bg.jpg');
+        background-position: center;
+        background-size: cover;
     }
 
     & .bg {
