@@ -211,6 +211,7 @@
                 align-items: flex-start;
                 justify-content: center;
                 gap: 20px;
+                background-color: var(--color-offwhite);
                 box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
                 padding: 20px 20px 16px;
                 animation: popIn .2s ease;
