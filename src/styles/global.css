@@ -395,3 +395,14 @@
         }
     }
 }
+
+/* AOS stagger item baseline and subtle transition fallback */
+.aos-stagger-item{
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .5s ease, transform .5s ease;
+}
+.aos-animate .aos-stagger-item{
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -37,6 +37,8 @@
         <!-- Styles: reset first, then global -->
         <link rel="stylesheet" href="src/styles/reset.css">
         <link rel="stylesheet" href="src/styles/global.css">
+    <!-- AOS library for entrance animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
         <!-- JSON-LD structured data -->
         <script type="application/ld+json">
@@ -120,5 +122,64 @@
             <div class="loading-spinner" role="status" aria-live="polite" aria-label="Carregando"></div>
         </div>
     </div>
+    <!-- AOS script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <!-- Inicializa AOS e aplica data-aos sequencialmente -->
+    <script defer>
+        (function () {
+            // Wait for DOMContentLoaded to ensure elements exist
+            function applyAos() {
+                try {
+                    // Select the area where we want the sequence. Use .container if present, otherwise body
+                    var root = document.querySelector('.container') || document.body;
+                    if (!root) return;
+
+                    // Gather all visible, focusable or meaningful elements to animate
+                    var selector = 'img, h1, form, p, label, input, button, .popup-content, #loading-overlay, .bg';
+                    var nodes = Array.from(root.querySelectorAll(selector));
+
+                    // Filter out elements that are not displayed
+                    nodes = nodes.filter(function (el) {
+                        var style = window.getComputedStyle(el);
+                        return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+                    });
+
+                    // Apply AOS attributes in sequence with incremental delays
+                    var baseDelay = 80; // ms between items
+                    nodes.forEach(function (el, idx) {
+                        // If element already declares data-aos, keep it but ensure a delay
+                        if (!el.hasAttribute('data-aos')) el.setAttribute('data-aos', 'fade-up');
+                        // Only set delay if not present
+                        if (!el.hasAttribute('data-aos-delay')) {
+                            el.setAttribute('data-aos-delay', String(idx * baseDelay));
+                        }
+                        // Use a slightly longer duration for a smoother feeling
+                        if (!el.hasAttribute('data-aos-duration')) el.setAttribute('data-aos-duration', '700');
+                        // Once set, add a small stagger class for CSS hooks if needed
+                        el.classList.add('aos-stagger-item');
+                    });
+
+                    // Initialize AOS with easing and once=true so animation plays once
+                    if (window.AOS && typeof window.AOS.init === 'function') {
+                        window.AOS.init({
+                            once: true,
+                            easing: 'ease-out-cubic',
+                            duration: 700,
+                            anchorPlacement: 'top-bottom',
+                        });
+                    }
+                } catch (e) {
+                    // fail silently
+                    console.error('AOS apply error', e);
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', applyAos);
+            } else {
+                applyAos();
+            }
+        })();
+    </script>
     <script src="./src/script/main.js" defer></script>
 </body>
