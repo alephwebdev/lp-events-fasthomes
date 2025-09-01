@@ -76,13 +76,14 @@
         }
 
         & img {
-            width: 60px;
+            width: 250px;
             height: auto;
             object-fit: contain;
             object-position: center;
+            margin-bottom: -10px;
 
             @media (max-width: 768px){
-                width: 50px;
+                width: 200px;
             }
         }
 
@@ -393,7 +394,7 @@
                 justify-content: center;
                 gap: 10px;
                 padding: 14px;
-                background-color: #0F9D58;
+                background-color: #4D5615;
                 color: #fbfbfb;
                 font-weight: 500;
                 font-size: 18px;
