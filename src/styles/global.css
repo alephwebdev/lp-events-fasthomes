@@ -144,6 +144,7 @@
             .form-popup {
                 position: fixed;
                 top: 50%;
+                width: 90%;
                 left: auto;
                 inset: 0;
                 z-index: 1000;
