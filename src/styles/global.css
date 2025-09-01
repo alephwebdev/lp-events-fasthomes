@@ -147,11 +147,9 @@
 
             .form-popup {
                 position: fixed;
-                top: 50%;
                 width: 100%;
-                left: auto;
                 inset: 0;
-                z-index: 1000;
+                z-index: 9999;
             }
 
             .form-popup .popup-backdrop {
@@ -180,7 +178,8 @@
                 animation: popIn .2s ease;
 
                 @media (max-width: 768px){
-                    width: 80%;
+                    width: 325px;
+                    top: 0%;
                 }
 
                 & img {
@@ -191,6 +190,7 @@
 
             .popup-title {
                 font-size: 28px;
+                line-height: 1;
                 font-weight: 500;
             }
 
