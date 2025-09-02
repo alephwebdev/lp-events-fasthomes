@@ -367,7 +367,7 @@
             gap: 15px;
 
             & label {
-                border: 1px solid var(--color-black);
+                border: 1px solid #1d1d1b40;
                 display: flex;
                 align-items: center;
                 justify-content: center;
